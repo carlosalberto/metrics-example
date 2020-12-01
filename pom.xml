@@ -18,24 +18,39 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
-  <!-- Un-comment to use the actual SNAPSHOTS
+  <!--
   <repositories>
     <repository>
       <id>oss.sonatype.org-snapshot</id>
       <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+    </repository>-->
+    <repository>
+      <id>bintray-open-telemetry-maven</id>
+      <name>bintray-open-telemetry-maven</name>
+      <url>https://dl.bintray.com/open-telemetry/maven/</url>
     </repository>
-  </repositories>-->
+  </repositories>
 
   <dependencies>
     <dependency>
       <groupId>io.opentelemetry</groupId>
       <artifactId>opentelemetry-exporter-otlp</artifactId>
-      <version>0.11.0-SNAPSHOT</version>
+      <version>0.11.0</version>
     </dependency>
     <dependency>
       <groupId>io.opentelemetry</groupId>
       <artifactId>opentelemetry-extension-trace-propagators</artifactId>
-      <version>0.11.0-SNAPSHOT</version>
+      <version>0.11.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.oshi</groupId>
+      <artifactId>oshi-core</artifactId>
+      <version>5.3.5</version>
+    </dependency>
+    <dependency>
+      <groupId>io.opentelemetry.instrumentation</groupId>
+      <artifactId>opentelemetry-oshi</artifactId>
+      <version>0.11.0</version>
     </dependency>
     <dependency>
       <groupId>io.grpc</groupId>

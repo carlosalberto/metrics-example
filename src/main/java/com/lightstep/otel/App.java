@@ -19,6 +19,7 @@ import io.opentelemetry.api.metrics.LongSumObserver;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Span.Kind;
 import io.opentelemetry.api.trace.Tracer;
+import io.opentelemetry.instrumentation.oshi.SystemMetrics;
 import java.util.Collections;
 import java.util.Random;
 
@@ -68,6 +69,9 @@ public class App
     observer2.setCallback((result) -> {
       result.observe(RAND.nextInt(5) + 1, Labels.of("hey", "sweet"));
     });
+
+    // Register metrics *after* initializing the SDK :(
+    SystemMetrics.registerObservers();
 
     // Send one thousand Spans.
     for (int i = 1; i <= 10000; i++) {
